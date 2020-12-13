@@ -1,0 +1,60 @@
+version: '3.4'
+
+services:
+
+    postgresql_database:
+        image: postgres:latest
+        environment:
+            - POSTGRES_USER=savchenko_r
+            - POSTGRES_PASSWORD=WnYERb9
+            - POSTGRES_DB=XemsMicrosoftGraphService
+        ports:
+            - "5432:5432"
+        restart: unless-stopped
+        volumes:
+            - ./database-data:/var/lib/postgresql/data/
+
+    pgadmin:
+        image: dpage/pgadmin4
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=savchenko_r@ffeks.dnu.edu.ua
+            - PGADMIN_DEFAULT_PASSWORD=QUrfFcP
+        ports:
+            - "5050:80"
+        restart: unless-stopped
+        volumes:
+            - ./pgadmin:/root/.pgadmin
+
+    seq:
+        image: datalust/seq:latest
+        ports:
+            - "5341:80"
+        environment:
+            ACCEPT_EULA: Y
+        restart: unless-stopped
+        volumes:
+            - ./seq-data:/data
+
+    portainer:
+        image: portainer/portainer
+        command: -H unix:///var/run/docker.sock
+        restart: always
+        ports:
+            - 9000:9000
+            - 8000:8000
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - portainer_data:/data
+
+    xems.microsoftgraph.service:
+        image: ${DOCKER_REGISTRY-}xemsmicrosoftgraphservice
+        build:
+            context: .
+            dockerfile: XEMS.MicrosoftGraph.Service/Dockerfile
+        depends_on: 
+            - postgresql_database
+
+volumes:
+    database-data:
+    pgadmin:
+    portainer_data:

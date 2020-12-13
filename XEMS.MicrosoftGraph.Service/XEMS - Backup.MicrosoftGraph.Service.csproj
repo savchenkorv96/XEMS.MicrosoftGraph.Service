@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Project\DOTNET\XEMS.MicrosoftGraph.Service\XEMS.MicrosoftGraph.Service\XEMS.MicrosoftGraph.Service.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helper\" />
+    <Folder Include="V1\" />
+  </ItemGroup>
+
+
+</Project>
