@@ -10,9 +10,7 @@ using XEMS.MicrosoftGraph.Service.Core.Model.Model.User.Model;
 
 namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
 {
-    public class
-        GetListTeamMemberByIdActivity : IRequestActivity<GetListTeamMemberByIdInputData, GetListTeamMemberByIdOutputData
-        >
+    public class GetListTeamMemberByIdActivity : IRequestActivity<GetListTeamMemberByIdInputData, GetListTeamMemberByIdOutputData>
     {
         private readonly Logger logger;
 
@@ -36,9 +34,10 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
 
                 var users = new List<UserModel>();
 
-                foreach (var item in memberOf)
+                foreach (var conversationMember in memberOf)
                 {
-                    var user = await Graph.Users[item.Id].Request()
+                    var item = (AadUserConversationMember) conversationMember;
+                    var user = await Graph.Users[item.UserId].Request()
                         .Select(u => new
                         {
                             u.Id,
@@ -70,6 +69,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
             catch (Exception e)
             {
                 logger.Error($"Type: GetListTeamMemberByIdActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

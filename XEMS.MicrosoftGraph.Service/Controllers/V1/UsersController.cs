@@ -115,7 +115,7 @@ namespace XEMS.MicrosoftGraph.Service.Controllers.V1
         {
             if (Equals(user, null)) return new BadRequestResult();
 
-            UserModel response;
+            UserModel response = null;
 
             try
             {

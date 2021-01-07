@@ -34,8 +34,24 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.User
                     StreetAddress = request.User.Address
                 };
 
-                var result = await Graph.Users[request.User.GUID].Request()
+                 await Graph.Users[request.User.GUID].Request()
                     .UpdateAsync(changeUser);
+
+                var result = await Graph.Users[request.User.GUID].Request()
+                    .Select(u => new
+                    {
+                        u.Id,
+                        u.DisplayName,
+                        u.Department,
+                        u.Mail,
+                        u.MailNickname,
+                        u.MobilePhone,
+                        u.Birthday,
+                        u.CreatedDateTime,
+                        u.JobTitle,
+                        u.StreetAddress
+                    })
+                    .GetAsync();
 
 
                 response = new UpdateContactInfoByIdOutputData
@@ -49,6 +65,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.User
             catch (Exception e)
             {
                 logger.Error($"Type: UpdateContactInfoByIdActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

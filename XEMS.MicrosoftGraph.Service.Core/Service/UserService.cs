@@ -17,6 +17,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
         public UserService(UseCaseFactory useCaseFactory, Logger logger)
         {
             _useCaseFactory = useCaseFactory;
+            this.logger = logger;
         }
 
         public async Task<UserModel> GetUserById(string guid)
@@ -52,13 +53,13 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     Email = email
                 };
 
-                var response = _useCaseFactory.Create<IUseCase<GetUserByEmailInputData, GetUserByEmailOutputData>>()
+                var response = await _useCaseFactory.Create<IUseCase<GetUserByEmailInputData, GetUserByEmailOutputData>>()
                     .Execute(request);
 
                 logger.Information(
                     $"Type: UserService; Method: GetUserByEmail; Info:Get User By Email: {request.Email} successfully");
 
-                return response.Result.User;
+                return response.User;
             }
             catch (Exception e)
             {
@@ -76,14 +77,14 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     User = user
                 };
 
-                var response = _useCaseFactory
+                var response = await _useCaseFactory
                     .Create<IUseCase<UpdateContactInfoByIdInputData, UpdateContactInfoByIdOutputData>>()
                     .Execute(request);
 
                 logger.Information(
                     $"Type: UserService; Method: UpdateContactInfo; Info: Update Contact Info By Id: {request.User.GUID} successfully");
 
-                return response.Result.User;
+                return response.User;
             }
             catch (Exception e)
             {

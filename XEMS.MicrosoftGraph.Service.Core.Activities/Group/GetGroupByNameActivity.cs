@@ -45,6 +45,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Group
             catch (Exception e)
             {
                 logger.Error($"Type: GetGroupByNameActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return response;

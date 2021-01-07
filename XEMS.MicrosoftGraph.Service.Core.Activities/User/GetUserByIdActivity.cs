@@ -53,6 +53,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.User
             catch (Exception e)
             {
                 logger.Error($"Type: GetUserByIdActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

@@ -1,377 +1,353 @@
 <?xml version="1.0"?>
-
 <doc>
-	<assembly>
-		<name>XEMS.MicrosoftGraph.Service</name>
-	</assembly>
-	<members>
-		<member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesAuthentication">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesAuthentication.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-			</summary>
-			<param name="services"></param>
-			<param name="configuration"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesBase">
-			<summary>
-				ASP.NET Core services registration and configurations
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesBase.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-				ConfigureServices Services
-			</summary>
-			<param name="services"></param>
-			<param name="configuration"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesControllers">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesControllers.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-			<summary>
-				Configure services
-			</summary>
-			<param name="services"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesCors">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesCors.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-			</summary>
-			<param name="services"></param>
-			<param name="configuration"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesVersioning">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesVersioning.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-			</summary>
-			<param name="services"></param>
-			<param name="configuration"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.AppStart.Configures.ConfigureCommon">
-			<summary>
-				Pipeline configuration
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.Configures.ConfigureCommon.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
-			<summary>
-				Configure pipeline
-			</summary>
-			<param name="app"></param>
-			<param name="env"></param>
-			<param name="mapper"></param>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.AppStart.Configures.ConfigureEndpoints.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-			<summary>
-				Configure Routing
-			</summary>
-			<param name="app"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Configuration.ConfigureServicesSwagger">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Configuration.ConfigureServicesSwagger.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-			</summary>
-			<param name="services"></param>
-			<param name="configuration"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Configuration.AddApiVersionExampleValueOperationFilter">
-			<summary>
-				AddApiVersionExampleValueOperationFilter
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Configuration.AddApiVersionExampleValueOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
-			<summary>
-			</summary>
-			<param name="operation"></param>
-			<param name="context"></param>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController">
-			<summary>
-				Authorization controller for working with api
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,XEMS.MicrosoftGraph.Service.Core.Service.AuthService,Serilog.Core.Logger)">
-			<summary>
-			</summary>
-			<param name="config"></param>
-			<param name="authService"></param>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController.AuthWithCredentials(XEMS.MicrosoftGraph.Service.Core.Model.Model.Auth.InputData.AuthModelWithCredentials)">
-			<summary>
-				Authorization of service by using сredentials
-			</summary>
-			<param name="authData"></param>
-			<returns></returns>
-			<response code="200">Access token and refresh token issued</response>
-			<response code="401">Credentials are invalid</response>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController.AuthModelWithRefreshToken(XEMS.MicrosoftGraph.Service.Core.Model.Model.Auth.InputData.AuthModelWithRefreshToken)">
-			<summary>
-				Authorization of service by using refreshToken
-			</summary>
-			<param name="authData"></param>
-			<returns>AuthDataModel</returns>
-			<response code="200">Issued a new access token and refresh token</response>
-			<response code="402">RefreshToken has been expired</response>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.#ctor(XEMS.MicrosoftGraph.Service.Core.Service.GroupService,Serilog.Core.Logger)">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.CreateGroup(XEMS.MicrosoftGraph.Service.Core.Model.Model.Group.Model.CreateGroupDataModel)">
-			<summary>
-				Create Group
-			</summary>
-			<param name="group"></param>
-			<returns></returns>
-			<response code="200">Group creation completed successfully</response>
-			<response code="400">Group creation not successful</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.JoinUserToGroupById(XEMS.MicrosoftGraph.Service.Core.Model.Model.Group.Model.JoinUserToGroupDataModel)">
-			<summary>
-				Join User To Group
-			</summary>
-			<param name="joinUsers"></param>
-			<returns></returns>
-			<response code="200">Adding a user to a group completed successfully</response>
-			<response code="400">Adding a user to a group not successful</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetGroupById(System.String)">
-			<summary>
-				Return user by id
-			</summary>
-			<param name="GUID"></param>
-			<returns></returns>
-			<response code="200">Returns a group by id</response>
-			<response code="400">The group was not found by the specified id</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetGroupByName(System.String)">
-			<summary>
-				Return user by name
-			</summary>
-			<param name="groupName"></param>
-			<returns></returns>
-			<response code="200">Returns a group by name</response>
-			<response code="400">The group was not found by the specified name</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetListGroup">
-			<summary>
-				List of groups
-			</summary>
-			<returns></returns>
-			<response code="200">The list of the group's fully selected</response>
-			<response code="400">The list of the selected group cannot be displayed</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetListGroupMemberById(System.String)">
-			<summary>
-				Getting a list of users by group ID
-			</summary>
-			<param name="GUID"></param>
-			<returns></returns>
-			<response code="200">Returns a list of users by the requested group</response>
-			<response code="400">Can't find users by group id</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.#ctor(XEMS.MicrosoftGraph.Service.Core.Service.TeamService,Serilog.Core.Logger)">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.CreateOrAddTeam(System.Collections.Generic.List{XEMS.MicrosoftGraph.Service.Core.Model.Model.Team.Model.CreateTeamOrAddDataModel})">
-			<summary>
-				Building a team and filling it with all the information it needs
-			</summary>
-			<param name="list"></param>
-			<returns></returns>
-			<response code="200">Team creation completed successfully</response>
-			<response code="400">Team creation unsuccessfully</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.CrateTeamFromGroupById(System.String)">
-			<summary>
-				Creating a team based on an existing team
-			</summary>
-			<param name="GUID"></param>
-			<returns></returns>
-			<response code="200">Creation of team based on group completed successfully</response>
-			<response code="400">Creation of team based on group failed</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.JoinUsersToTeamById(System.String,System.Collections.Generic.List{System.String})">
-			<summary>
-				Adding users to the corresponding command
-			</summary>
-			<param name="GUID"></param>
-			<param name="users"></param>
-			<returns></returns>
-			<response code="200">Added users to the command successfully</response>
-			<response code="400">Adding users to the command failed</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.GetTeamById(System.String)">
-			<summary>
-				Getting a group by ID
-			</summary>
-			<param name="GUID"></param>
-			<returns></returns>
-			<response code="200">Group was found</response>
-			<response code="400">Group was not found</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.GetListTeamMemberById(System.String)">
-			<summary>
-				Getting a list of the user of the requested team
-			</summary>
-			<param name="GUID"></param>
-			<returns></returns>
-			<response code="200">Group was found</response>
-			<response code="400">Group was not found</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.#ctor(XEMS.MicrosoftGraph.Service.Core.Service.UserService,Serilog.Core.Logger)">
-			<summary>
-			</summary>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.GetUserById(System.String)">
-			<summary>
-				Receiving a user by his identifier
-			</summary>
-			<param name="GUID"></param>
-			<returns></returns>
-			<response code="200">Returns user by identifier</response>
-			<response code="400">Not exit user by identifier</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.GetUserByEmail(System.String)">
-			<summary>
-				Receiving a user by his email
-			</summary>
-			<param name="Email"></param>
-			<returns></returns>
-			<response code="200">Returns user by email</response>
-			<response code="400">Not exit user by email</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.UpdateUserContactInfoById(XEMS.MicrosoftGraph.Service.Core.Model.Model.User.Model.UserModel)">
-			<summary>
-				Update Contact information on teams server
-			</summary>
-			<param name="user"></param>
-			<returns></returns>
-			<response code="200">Return updated user</response>
-			<response code="400">Bad request</response>
-			<response code="401">Not authorized user</response>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Core.Helper.TokenPublisher">
-			<summary>
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Core.Helper.TokenPublisher.GenerateAccessToken(XEMS.MicrosoftGraph.Service.Core.Model.Model.Auth.OutputData.AuthResultModel,Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-			</summary>
-			<param name="userInfo"></param>
-			<param name="_config"></param>
-			<returns></returns>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Core.Helper.TokenPublisher.GenerateRefreshToken">
-			<summary>
-			</summary>
-			<returns></returns>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Program">
-			<summary>
-			</summary>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Program.Main(System.String[])">
-			<summary>
-			</summary>
-			<param name="args"></param>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Program.CreateHostBuilder(System.String[])">
-			<summary>
-			</summary>
-			<param name="args"></param>
-			<returns></returns>
-		</member>
-		<member name="T:XEMS.MicrosoftGraph.Service.Startup">
-			<summary>
-			</summary>
-		</member>
-		<member name="M:XEMS.MicrosoftGraph.Service.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
-			<summary>
-				Entry point
-			</summary>
-			<param name="configuration"></param>
-		</member>
-		<member name="P:XEMS.MicrosoftGraph.Service.Startup.Configuration">
-			<summary>
-				Configuration
-			</summary>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-			<summary>
-				This method gets called by the runtime. Use this method to add services to the container.
-			</summary>
-			<param name="services"></param>
-		</member>
-		<member
-			name="M:XEMS.MicrosoftGraph.Service.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
-			<summary>
-				This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-			</summary>
-			<param name="app"></param>
-			<param name="env"></param>
-			<param name="provider"></param>
-		</member>
-	</members>
+    <assembly>
+        <name>XEMS.MicrosoftGraph.Service.OtherDepartment</name>
+    </assembly>
+    <members>
+        <member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesAuthentication">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesAuthentication.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesBase">
+            <summary>
+                ASP.NET Core services registration and configurations
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesBase.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                ConfigureServices Services
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesControllers">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesControllers.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configure services
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesCors">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesCors.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesVersioning">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.ConfigureServices.ConfigureServicesVersioning.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.AppStart.Configures.ConfigureCommon">
+            <summary>
+                Pipeline configuration
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.Configures.ConfigureCommon.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+                Configure pipeline
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.AppStart.Configures.ConfigureEndpoints.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Configure Routing
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Configuration.ConfigureServicesSwagger">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Configuration.ConfigureServicesSwagger.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Configuration.AddApiVersionExampleValueOperationFilter">
+            <summary>
+                AddApiVersionExampleValueOperationFilter
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Configuration.AddApiVersionExampleValueOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController">
+            <summary>
+                Authorization controller for working with api
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,XEMS.MicrosoftGraph.Service.Core.Service.AuthService,Serilog.Core.Logger)">
+            <summary>
+            </summary>
+            <param name="config"></param>
+            <param name="authService"></param>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController.AuthWithCredentials(XEMS.MicrosoftGraph.Service.Core.Model.Model.Auth.InputData.AuthModelWithCredentials)">
+            <summary>
+                Authorization of service by using сredentials
+            </summary>
+            <param name="authData"></param>
+            <returns></returns>
+            <response code="200">Access token and refresh token issued</response>
+            <response code="401">Credentials are invalid</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.AuthenticationController.AuthModelWithRefreshToken(XEMS.MicrosoftGraph.Service.Core.Model.Model.Auth.InputData.AuthModelWithRefreshToken)">
+            <summary>
+                Authorization of service by using refreshToken
+            </summary>
+            <param name="authData"></param>
+            <returns>AuthDataModel</returns>
+            <response code="200">Issued a new access token and refresh token</response>
+            <response code="402">RefreshToken has been expired</response>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.#ctor(XEMS.MicrosoftGraph.Service.Core.Service.GroupService,Serilog.Core.Logger)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.CreateGroup(XEMS.MicrosoftGraph.Service.Core.Model.Model.Group.Model.CreateGroupDataModel)">
+            <summary>
+                Create Group
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+            <response code="200">Group creation completed successfully</response>
+            <response code="400">Group creation not successful</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.JoinUserToGroupById(XEMS.MicrosoftGraph.Service.Core.Model.Model.Group.Model.JoinUserToGroupDataModel)">
+            <summary>
+                Join User To Group
+            </summary>
+            <param name="joinUsers"></param>
+            <returns></returns>
+            <response code="200">Adding a user to a group completed successfully</response>
+            <response code="400">Adding a user to a group not successful</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetGroupById(System.String)">
+            <summary>
+                Return user by id
+            </summary>
+            <param name="GUID"></param>
+            <returns></returns>
+            <response code="200">Returns a group by id</response>
+            <response code="400">The group was not found by the specified id</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetGroupByName(System.String)">
+            <summary>
+                Return user by name
+            </summary>
+            <param name="groupName"></param>
+            <returns></returns>
+            <response code="200">Returns a group by name</response>
+            <response code="400">The group was not found by the specified name</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetListGroup">
+            <summary>
+                List of groups
+            </summary>
+            <returns></returns>
+            <response code="200">The list of the group's fully selected</response>
+            <response code="400">The list of the selected group cannot be displayed</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.GroupController.GetListGroupMemberById(System.String)">
+            <summary>
+                Getting a list of users by group ID
+            </summary>
+            <param name="GUID"></param>
+            <returns></returns>
+            <response code="200">Returns a list of users by the requested group</response>
+            <response code="400">Can't find users by group id</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.#ctor(XEMS.MicrosoftGraph.Service.Core.Service.TeamService,Serilog.Core.Logger)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.CreateOrAddTeam(System.Collections.Generic.List{XEMS.MicrosoftGraph.Service.Core.Model.Model.Team.Model.CreateTeamOrAddDataModel})">
+            <summary>
+                Building a team and filling it with all the information it needs
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+            <response code="200">Team creation completed successfully</response>
+            <response code="400">Team creation unsuccessfully</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.CrateTeamFromGroupById(System.String)">
+            <summary>
+                Creating a team based on an existing team
+            </summary>
+            <param name="GUID"></param>
+            <returns></returns>
+            <response code="200">Creation of team based on group completed successfully</response>
+            <response code="400">Creation of team based on group failed</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.JoinUsersToTeamById(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+                Adding users to the corresponding command
+            </summary>
+            <param name="GUID"></param>
+            <param name="users"></param>
+            <returns></returns>
+            <response code="200">Added users to the command successfully</response>
+            <response code="400">Adding users to the command failed</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.GetTeamById(System.String)">
+            <summary>
+                Getting a group by ID
+            </summary>
+            <param name="GUID"></param>
+            <returns></returns>
+            <response code="200">Group was found</response>
+            <response code="400">Group was not found</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.TeamsController.GetListTeamMemberById(System.String)">
+            <summary>
+                Getting a list of the user of the requested team
+            </summary>
+            <param name="GUID"></param>
+            <returns></returns>
+            <response code="200">Group was found</response>
+            <response code="400">Group was not found</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.#ctor(XEMS.MicrosoftGraph.Service.Core.Service.UserService,Serilog.Core.Logger)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.GetUserById(System.String)">
+            <summary>
+                Receiving a user by his identifier
+            </summary>
+            <param name="GUID"></param>
+            <returns></returns>
+            <response code="200">Returns user by identifier</response>
+            <response code="400">Not exit user by identifier</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.GetUserByEmail(System.String)">
+            <summary>
+                Receiving a user by his email
+            </summary>
+            <param name="Email"></param>
+            <returns></returns>
+            <response code="200">Returns user by email</response>
+            <response code="400">Not exit user by email</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Controllers.V1.UsersController.UpdateUserContactInfoById(XEMS.MicrosoftGraph.Service.Core.Model.Model.User.Model.UserModel)">
+            <summary>
+                Update Contact information on teams server
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+            <response code="200">Return updated user</response>
+            <response code="400">Bad request</response>
+            <response code="401">Not authorized user</response>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Core.Helper.TokenPublisher">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Core.Helper.TokenPublisher.GenerateAccessToken(XEMS.MicrosoftGraph.Service.Core.Model.Model.Auth.OutputData.AuthResultModel,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="userInfo"></param>
+            <param name="_config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Core.Helper.TokenPublisher.GenerateRefreshToken">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Program">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Program.Main(System.String[])">
+            <summary>
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XEMS.MicrosoftGraph.Service.Startup">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Entry point
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:XEMS.MicrosoftGraph.Service.Startup.Configuration">
+            <summary>
+                Configuration
+            </summary>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:XEMS.MicrosoftGraph.Service.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+                This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="provider"></param>
+        </member>
+    </members>
 </doc>

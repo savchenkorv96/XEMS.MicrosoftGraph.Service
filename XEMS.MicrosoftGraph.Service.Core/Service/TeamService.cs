@@ -32,7 +32,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     List = model
                 };
 
-                var response = _useCaseFactory.Create<IUseCase<CreateOrAddTeamInputData, CreateOrAddTeamOutputData>>()
+                var response = await _useCaseFactory.Create<IUseCase<CreateOrAddTeamInputData, CreateOrAddTeamOutputData>>()
                     .Execute(request);
 
                 logger.Information("Type: TeamService; Method: CreateOrAddTeam; Info: Create Or Add Team successfully");
@@ -55,14 +55,14 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     GUID = guid
                 };
 
-                var response = _useCaseFactory
+                var response = await _useCaseFactory
                     .Create<IUseCase<CrateTeamFromGroupByIdInputData, CrateTeamFromGroupByIdOutputData>>()
                     .Execute(request);
 
                 logger.Information(
                     $"Type: TeamService; Method: CrateTeamFromGroupById; Info: Crate Team From Group By Id {request.GUID} successfully");
 
-                return response.Result.Team;
+                return response.Team;
             }
             catch (Exception e)
             {
@@ -80,14 +80,14 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     GUID = guid
                 };
 
-                var response = _useCaseFactory
+                var response = await _useCaseFactory
                     .Create<IUseCase<GetListTeamMemberByIdInputData, GetListTeamMemberByIdOutputData>>()
                     .Execute(request);
 
                 logger.Information(
                     $"Type: TeamService; Method: GetListTeamMemberById; Info: Get List Team Member By Id {request.GUID} successfully");
 
-                return response.Result.Users;
+                return response.Users;
             }
             catch (Exception e)
             {
@@ -106,14 +106,14 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     UsersGUID = users
                 };
 
-                var response = _useCaseFactory
+                var response = await _useCaseFactory
                     .Create<IUseCase<JoinUsersToTeamByIdInputData, JoinUsersToTeamByIdOutputData>>()
                     .Execute(request);
 
                 logger.Information(
                     $"Type: TeamService; Method: JoinUsersToTeamById; Info: Join Users To Team By Id {request.GUID} successfully");
 
-                return response.Result.Users;
+                return response.Users;
             }
             catch (Exception e)
             {
@@ -131,13 +131,13 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
                     GUID = guid
                 };
 
-                var response = _useCaseFactory.Create<IUseCase<GetTeamByIdInputData, GetTeamByIdOutputData>>()
+                var response = await _useCaseFactory.Create<IUseCase<GetTeamByIdInputData, GetTeamByIdOutputData>>()
                     .Execute(request);
 
                 logger.Information(
                     $"Type: TeamService; Method: GetTeamById; Info: Get Team By Id {request.GUID} successfully");
 
-                return response.Result.Team;
+                return response.Team;
             }
             catch (Exception e)
             {

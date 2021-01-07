@@ -35,6 +35,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
             catch (Exception e)
             {
                 logger.Error($"Method: AuthenticateUser With Credentials Message: {e.Message}");
+                throw;
             }
 
             return result;
@@ -53,6 +54,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
             catch (Exception e)
             {
                 logger.Error($"Method: AuthenticateUser with RefreshToken  Message: {e.Message}");
+                throw;
             }
 
             return result;
@@ -74,6 +76,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Service
             catch (Exception e)
             {
                 logger.Error($"Method: UpdateRefreshToken Message: {e.Message}");
+                throw;
             }
 
             return result;

@@ -105,6 +105,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
             catch (Exception e)
             {
                 logger.Error($"Type: CreateOrAddTeamActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

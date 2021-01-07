@@ -33,6 +33,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.Team
             catch (Exception e)
             {
                 logger.Error($"Type: CrateTeamFromGroupByIdUseCase; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return result;

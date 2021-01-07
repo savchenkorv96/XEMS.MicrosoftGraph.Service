@@ -39,7 +39,8 @@ namespace XEMS.MicrosoftGraph.Service.DataAccess.Repository
             }
             catch (Exception e)
             {
-                logger.Error($"Update RefreshToken for id {id} unsuccessfully.");
+                logger.Error($"Update RefreshToken for id {id} unsuccessfully Message: {e.Message}");
+                throw;
             }
         }
 
@@ -58,7 +59,8 @@ namespace XEMS.MicrosoftGraph.Service.DataAccess.Repository
             }
             catch (Exception e)
             {
-                logger.Error($"GetUserByСredentials for login {login} unsuccessfully.");
+                logger.Error($"GetUserByСredentials for login {login} unsuccessfully. Message: {e.Message}");
+                throw;
             }
 
             return result;
@@ -79,7 +81,8 @@ namespace XEMS.MicrosoftGraph.Service.DataAccess.Repository
             }
             catch (Exception e)
             {
-                logger.Error($"GetUserByRefreshToken for refreshToken {refreshToken} unsuccessfully.");
+                logger.Error($"GetUserByRefreshToken for refreshToken {refreshToken} unsuccessfully Message: {e.Message}");
+                throw;
             }
 
             return result;
@@ -109,7 +112,8 @@ namespace XEMS.MicrosoftGraph.Service.DataAccess.Repository
             }
             catch (Exception e)
             {
-                logger.Error($"AddService with login {item.Login} unsuccessfully.");
+                logger.Error($"AddService with login {item.Login} unsuccessfully Message: {e.Message}");
+                throw;
             }
         }
     }

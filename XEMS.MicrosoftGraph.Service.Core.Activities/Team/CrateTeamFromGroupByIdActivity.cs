@@ -67,6 +67,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
             catch (Exception e)
             {
                 logger.Error($"Type: CrateTeamFromGroupByIdActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

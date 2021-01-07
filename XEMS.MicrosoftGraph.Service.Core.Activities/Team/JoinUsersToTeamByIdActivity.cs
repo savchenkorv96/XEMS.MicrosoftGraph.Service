@@ -48,9 +48,10 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
 
                 var users = new List<UserModel>();
 
-                foreach (var item in memberOf)
+                foreach (var cm in memberOf)
                 {
-                    var user = await Graph.Users[item.Id].Request()
+                    var item = (AadUserConversationMember)cm;
+                    var user = await Graph.Users[item.UserId].Request()
                         .Select(u => new
                         {
                             u.Id,
@@ -82,6 +83,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
             catch (Exception e)
             {
                 logger.Error($"Type: JoinUsersToTeamByIdActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

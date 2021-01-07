@@ -79,7 +79,7 @@ namespace XEMS.MicrosoftGraph.Service.Controllers.V1
         [MapToApiVersion("1.0")]
         public async Task<IActionResult> CrateTeamFromGroupById(string GUID)
         {
-            if (!string.IsNullOrEmpty(GUID)) return new BadRequestResult();
+            if (string.IsNullOrEmpty(GUID)) return new BadRequestResult();
 
             TeamModel response;
 
@@ -116,7 +116,7 @@ namespace XEMS.MicrosoftGraph.Service.Controllers.V1
         [MapToApiVersion("1.0")]
         public async Task<object> JoinUsersToTeamById(string GUID, List<string> users)
         {
-            if (!string.IsNullOrEmpty(GUID)) return new BadRequestResult();
+            if (string.IsNullOrEmpty(GUID)) return new BadRequestResult();
 
             List<UserModel> response;
 
@@ -151,7 +151,7 @@ namespace XEMS.MicrosoftGraph.Service.Controllers.V1
         [MapToApiVersion("1.0")]
         public async Task<IActionResult> GetTeamById(string GUID)
         {
-            if (!string.IsNullOrEmpty(GUID)) return new BadRequestResult();
+            if (string.IsNullOrEmpty(GUID)) return new BadRequestResult();
 
             TeamModel response;
 
@@ -187,7 +187,7 @@ namespace XEMS.MicrosoftGraph.Service.Controllers.V1
         [MapToApiVersion("1.0")]
         public async Task<IActionResult> GetListTeamMemberById(string GUID)
         {
-            if (!string.IsNullOrEmpty(GUID)) return new BadRequestResult();
+            if (string.IsNullOrEmpty(GUID)) return new BadRequestResult();
 
             List<UserModel> response;
 

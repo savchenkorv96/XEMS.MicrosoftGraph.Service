@@ -31,6 +31,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.User
             catch (Exception e)
             {
                 logger.Error($"Type: GetUserByIdUseCase; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return result;

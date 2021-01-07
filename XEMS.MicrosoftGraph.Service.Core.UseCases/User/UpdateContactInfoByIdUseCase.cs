@@ -33,6 +33,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.User
             catch (Exception e)
             {
                 logger.Error($"Type: UpdateContactInfoByIdUseCase; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return result;

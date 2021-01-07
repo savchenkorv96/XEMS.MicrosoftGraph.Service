@@ -40,6 +40,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Team
             catch (Exception e)
             {
                 logger.Error($"Type: GetTeamByIdActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

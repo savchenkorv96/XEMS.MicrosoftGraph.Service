@@ -31,6 +31,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.Team
             catch (Exception e)
             {
                 logger.Error($"Type: GetTeamByIdUseCase; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return result;

@@ -56,6 +56,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.Activities.Group
             catch (Exception e)
             {
                 logger.Error($"Type: CreateGroupActivity; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return await Task.FromResult(response);

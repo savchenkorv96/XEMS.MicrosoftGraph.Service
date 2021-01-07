@@ -32,6 +32,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.Group
             catch (Exception e)
             {
                 logger.Error($"Type: GetListGroupUseCase; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return result;

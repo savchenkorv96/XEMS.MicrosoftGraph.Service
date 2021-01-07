@@ -18,6 +18,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.Team
             IRequestActivity<GetListTeamMemberByIdInputData, GetListTeamMemberByIdOutputData> activity, Logger logger)
         {
             Activity = activity;
+            this.logger = logger;
         }
 
         public async Task<GetListTeamMemberByIdOutputData> Execute(GetListTeamMemberByIdInputData request)
@@ -32,6 +33,7 @@ namespace XEMS.MicrosoftGraph.Service.Core.UseCases.Team
             catch (Exception e)
             {
                 logger.Error($"Type: GetListTeamMemberByIdUseCase; Method: Execute; Error: {e.Message}");
+                throw;
             }
 
             return result;
